@@ -1,22 +1,22 @@
 Backend (FastAPI + MongoDB)
 
-Ringkas: API untuk aggregasi data APMS dari MongoDB (dump di folder `dump/apms`).
+Summary: API for aggregating APMS data from MongoDB (dump in `dump/apms` folder).
 
-Jalankan lokal:
+Run locally:
 - Python 3.10+
 - `pip install -r requirements.txt`
-- Salin `.env.example` ke `.env` lalu sesuaikan bila perlu
+- Copy `.env.example` to `.env` and adjust if needed
 - `uvicorn app.main:app --reload --port 8000`
 
 Env vars:
-- `MONGODB_URI` default `mongodb://localhost:27018` (mengikuti docker-compose di repo ini)
+- `MONGODB_URI` default `mongodb://localhost:27018` (follows docker-compose in this repo)
 - `MONGODB_DB` default `apms`
 
-Endpoint awal:
-- `GET /health` cek kesehatan
-- `GET /v1/production/summary` produksi agregat (berdasar `counts`)
-- `GET /v1/downtime/reasons` durasi downtime per `stopReason` (berdasar `timerlogs`)
-- `GET /v1/cycle-times` daftar cycle time (berdasar `cycletimers` atau `timerlogs.cycle` bila ada)
+Initial endpoints:
+- `GET /health` health check
+- `GET /v1/production/summary` production aggregates (based on `counts`)
+- `GET /v1/downtime/reasons` downtime duration per `stopReason` (based on `timerlogs`)
+- `GET /v1/cycle-times` list of cycle times (based on `cycletimers` or `timerlogs.cycle` if available)
 
-Catatan: Query menggunakan index yang tersedia di dump metadata untuk efisiensi (mis. `timerId`, `locationId`, `createdAt/endedAt`, `stopReason`).
+Note: Queries use available indexes in dump metadata for efficiency (e.g., `timerId`, `locationId`, `createdAt/endedAt`, `stopReason`).
 

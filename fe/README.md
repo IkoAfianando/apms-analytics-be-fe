@@ -1,16 +1,16 @@
 Frontend (Next.js + ECharts)
 
-Ringkas: Dashboard visualisasi data APMS menggunakan ECharts.
+Summary: APMS data visualization dashboard using ECharts.
 
-Persiapan:
+Setup:
 - Node.js 18+
 - pnpm 8+
-- `cp .env.local.example .env.local` lalu sesuaikan `NEXT_PUBLIC_API_BASE`
+- `cp .env.local.example .env.local` then adjust `NEXT_PUBLIC_API_BASE`
 - `pnpm install`
 - `pnpm dev`
 
-Halaman awal (`/`) menampilkan contoh:
-- Trend produksi (line chart) dari endpoint `/v1/production/summary`
-- Pareto downtime (bar) dari endpoint `/v1/downtime/reasons`
-- Distribusi cycle time (scatter) dari endpoint `/v1/cycle-times`
+Home page (`/`) displays examples:
+- Production trends (line chart) from endpoint `/v1/production/summary`
+- Downtime Pareto (bar) from endpoint `/v1/downtime/reasons`
+- Cycle time distribution (scatter) from endpoint `/v1/cycle-times`
 
