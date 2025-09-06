@@ -14,7 +14,7 @@ export default function Gallery() {
   const [dataset, setDataset] = useState<string>('timerlogs');
   const [chart, setChart] = useState<string>('line');
 
-  // contoh payload generik untuk beberapa chart
+  // Example generic payload for various charts
   const payload = useMemo(() => {
     if (dataset === 'timerlogs' && chart === 'line') {
       return {
@@ -35,7 +35,7 @@ export default function Gallery() {
       };
     }
     if (dataset === 'timerlogs' && chart === 'pareto') {
-      return null; // pakai endpoint khusus pareto di bawah
+      return null; // Use dedicated pareto endpoint below
     }
     return {
       collection: dataset,
